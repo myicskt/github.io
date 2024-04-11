@@ -1,0 +1,24 @@
+body{
+	marging:20px
+	padding:20px
+	
+}
+.container{
+	marging:20px
+	padding:20px
+}
+
+.success{
+	background:green;
+	font-color:white;
+}
+.failed,.err{
+	background:red;
+	font-color:white;
+}
+
+form{
+	margin:20px;
+	padding:10px;
+	
+}
