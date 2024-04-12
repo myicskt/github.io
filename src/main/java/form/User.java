@@ -2,59 +2,72 @@ package form;
 
 public class User {
 
-	public User() {
-		// TODO Auto-generated constructor stub
-	}
-String name;
-String profession;
-int applciation;
-int age ;
+	
+	
+int id;
+String firstName;
+String lastName;
+String userName;
+String pws;
+String email;
+long phoneNo;
 
-
-public User(String name, String profession, int applciation, int age, String agenda) {
-	super();
-	this.name = name;
-	this.profession = profession;
-	this.applciation = applciation;
-	this.age = age;
-	this.agenda = agenda;
+public User() {
+	
+}
+public User(String firstName, String lastName, String userName, String pws, String email, long phoneNo) {
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.userName = userName;
+	this.pws = pws;
+	this.email = email;
+	this.phoneNo = phoneNo;
 }
 @Override
 public String toString() {
-	return "User [name=" + name + ", profession=" + profession + ", applciation=" + applciation + ", age=" + age
-			+ ", agenda=" + agenda + "]";
+	return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName
+			+ ", pws=" + pws + ", email=" + email + ", phoneNo=" + phoneNo + "]";
 }
-public String getName() {
-	return name;
+public String getFirstName() {
+	return firstName;
 }
-public void setName(String name) {
-	this.name = name;
+public void setFirstName(String firstName) {
+	this.firstName = firstName;
 }
-public String getProfession() {
-	return profession;
+public String getLastName() {
+	return lastName;
 }
-public void setProfession(String profession) {
-	this.profession = profession;
+public void setLastName(String lastName) {
+	this.lastName = lastName;
 }
-public int getApplciation() {
-	return applciation;
+public String getUserName() {
+	return userName;
 }
-public void setApplciation(int applciation) {
-	this.applciation = applciation;
+public void setUserName(String userName) {
+	this.userName = userName;
 }
-public int getAge() {
-	return age;
+public String getPws() {
+	return pws;
 }
-public void setAge(int age) {
-	this.age = age;
+public void setPws(String pws) {
+	this.pws = pws;
 }
-public String getAgenda() {
-	return agenda;
+public String getEmail() {
+	return email;
 }
-public void setAgenda(String agenda) {
-	this.agenda = agenda;
+public void setEmail(String email) {
+	this.email = email;
 }
-String agenda;
+public long getPhoneNo() {
+	return phoneNo;
+}
+public void setPhoneNo(long phoneNo) {
+	this.phoneNo = phoneNo;
+}
+
+public int getId() {
+	return id;
+}
 
 
 

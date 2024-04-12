@@ -1,21 +1,45 @@
 <%@ include file="header.jsp" %>
-
-<% String attr= (String)session.getAttribute("username");
-if(attr==null){
-	System.out.println(" Trying to skip login ....");
-	request.setAttribute("isSkip", "log is required !!");
-	request.getRequestDispatcher("login.jsp").forward(request, response);
+<%@page import="java.time.*" 
+import="java.time.format.DateTimeFormatter"%>
+ <%
+String userId= (String)session.getAttribute("username");
+if(userId==null){
+System.out.println(" Trying to skip login ....");
+request.setAttribute("isSkip", "log is required !!");
+response.sendRedirect("index.jsp");
 }else{
-	System.out.println("login sucess. ");
-}
+System.out.println("login sucess.");
+} 
 %>
 
-<h1> Welcome, user, Your login is   <% session.getAttribute("user"); %></h1>
+ <%! 
+ String datetime= DateTimeFormatter.ofPattern("MM-dd-yy HH:mm:ss").format(LocalDateTime.now());
+ %>
+ 
+<p> Today :  <%=datetime%><p>
+<p> Welcome, <%=session.getAttribute("username")%><p>
 
 
-<a href="logout.jsp">logout</a>
 
 
-</div>
-</body>
-</html>
+
+<br>
+
+<a href="singup.jsp">sing up</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%@ include file="footer.jsp" %>

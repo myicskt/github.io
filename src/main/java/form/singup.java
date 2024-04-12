@@ -61,33 +61,69 @@ public class singup extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+	
+		
+		
 		String firstName = (String) request.getParameter("firstname");
 		String lastName = (String) request.getParameter("lastname");
 		String userName = (String) request.getParameter("username");
 		String pws = (String) request.getParameter("password");
 		String email = (String) request.getParameter("email");
-		String gender = (String) request.getParameter("gender");
+		String phoneNumber=request.getParameter("phone");
+		 
+		
+		
+		
+		
+		if(userName==null ||pws==null) {
+			
+			response.sendRedirect("singup.jsp");
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
-		Connection con = getDBConnection(url, user, key);
+		final String URL = "jdbc:mysql://localhost:3306/register_login";
+		final String USER = "root";
+		final String KEY = "root";
+		Statement stmt;
+		
 
+		String query = "insert into login_user (firstname, lastname, username, user_pws, email, phone_no ) values"
+				+ "('"+firstName+"','"+lastName+"', '"+userName+"', '"+pws+"', '"+email+"', '"+phoneNumber+"');";
+		java.sql.Connection con;
+		int key=-1;
+		try {
+			con = DriverManager.getConnection(URL, USER, KEY);
+			stmt = ((java.sql.Connection) con).createStatement();
+			stmt.executeUpdate(query);
+			/*
+			 * stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS); ResultSet result
+			 * =stmt.getGeneratedKeys(); if(result!=null&&result.next()) {
+			 * key=result.getInt(1); }
+			 */
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		
 		/*
-		 * String query = "select * from login_users"; String user = "root"; String key
-		 * = "root"; String url = "jdbc:mysql://localhost:3306/feb_2024";
-		 * 
-		 * try { Connection con =DriverManager.getConnection(url, user, key); Statement
-		 * stmt = con.createStatement(); ResultSet result= stmt.executeQuery(query);
-		 * 
-		 * while(result.next()) { System.out.println(result.getString("id")); }
-		 * 
-		 * } catch (SQLException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
+		 * String sucessmsg = "Thank for createing account"; request.setAttribute("msg",
+		 * sucessmsg);
 		 */
-
-		String sucessmsg = "Thank for createing account";
-		request.setAttribute("msg", sucessmsg);
-
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("singupsucess.jsp");
-		requestDispatcher.forward(request, response);
+		
+		 RequestDispatcher requestDispatcher =
+		 request.getRequestDispatcher("singupsucess.jsp");
+		  requestDispatcher.forward(request, response);
+		
 	}
 
 }

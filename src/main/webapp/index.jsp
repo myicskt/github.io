@@ -1,37 +1,30 @@
 <%@ include file="header.jsp"%>
 
 
+<%
+String err = (String) session.getAttribute("err");
+String skipp = (String) session.getAttribute("isSkip");
 
-<form action="validate.jsp" method="post">
+if (skipp != null) {
+	System.out.println("skipp error : " + skipp);
+	out.println("<h4> " + skipp + "</h4>");
+}
+if (err != null) {
+	System.out.println("error : " + err);
+	
+	%>	
+	
+	<div class="alert alert-danger" role="alert">
+	 <h4> 
+	 <%=err %>
+	 </h4>
+	</div>
+<%
+}
+%>
 
-	<table border="1">
-		<h1>Welcome to the Mr application</h1>
-		<%
-		String err = (String) session.getAttribute("err");
-		String skipp = (String) session.getAttribute("isSkip");
 
-		if (skipp != null) {
-			System.out.println("skipp error : " + skipp);
-			out.println("<h4> " + skipp + "</h4>");
-		}
-		if (err != null) {
-			System.out.println("error : " + err);
-			out.println("<h4> " + err + "</h4>");
-		}
-		%>
-		<tr>
-			<td>Login:</td>
-			<td><input type="text" name="username"></td>
-			<td>password:</td>
-			<td><input type="text" name="password"></td>
-			<td><button type="submit">submit</button></td>
-			<td><button type="reset">reset</button>
-		</tr>
-	</table>
-
-</form>
-
-<hr>
+<img src="jsp\images\home_1.jpg" class="img-fluid" alt="...">
 
 
 <%
