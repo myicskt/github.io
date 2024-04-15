@@ -1,8 +1,10 @@
-
+<%@ page language="java"  errorPage="error.jsp" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 	
 <%@ include file="header.jsp"%>
 
 <% String attr= (String)session.getAttribute("username");
+
 if(attr==null){
 	System.out.println(" Trying to skip login ....");
 	request.setAttribute("isSkip", "log is required !!");
@@ -19,6 +21,12 @@ if(attr==null){
   <!-- Content here -->
 <br>
 <form action="singup" method="post">
+
+<p><%
+String msg=(String) session.getAttribute("userStatus");
+if (msg != null) {
+	out.println("<h4> " + msg + "</h4>");
+} %></p>
 	<div class="mb-3">
 		<label name="firstname" class="form-label">First name : </label> <input
 			class="form-label" type="text" name="firstname"> <br> <label

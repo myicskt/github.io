@@ -1,7 +1,18 @@
 
 
-<%@ page language="java"  contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+
+<%
+String curenturl1 = request.getRequestURI();
+String headerURL = "/RegisterLogin/header.jsp";
+if (curenturl1.equals(headerURL)) {
+	response.sendRedirect("index.jsp");
+} else {
+
+	System.out.println("current " + curenturl1);
+	System.out.println("footerUrl " + headerURL);
+%>
+
+
 
 
 <!doctype html>
@@ -50,7 +61,9 @@
 							aria-current="page" href="singup.jsp">Sign Up</a></li>
 
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="listuser.jsp">List User</a></li>
+							aria-current="page" href="listuser.jsp">User List</a></li>
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="courselistresult.jsp">Course List</a></li>
 
 
 						<%
@@ -60,8 +73,14 @@
 							aria-current="page" href="about.jsp">About</a></li>
 
 						<li class="nav-item"><a class="nav-link" href="classwork.jsp">classwork</a></li>
-						
-						<!-- <li class="nav-item dropdown"><a
+
+
+						<li class="nav-item"><a class="nav-link" href="handled.jsp">error
+								handled</a></li>
+
+
+						<!--
+						 <li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"> Dropdown </a>
 							<ul class="dropdown-menu">
@@ -77,13 +96,14 @@
 					<%
 					if (session.getAttribute("username") == null) {
 					%>
-					<form class="d-flex" role="search" action="validate.jsp"
-						method="post">
+					<form class="d-flex" role="#" action="validate.jsp" method="post">
 						<input class="form-control me-2" type="text" name="username"
-							placeholder="User Name" aria-label="Search"> <input
+							placeholder="User Name" aria-label="#"> <input
 							class="form-control me-2" type="text" name="password"
 							placeholder="Password" aria-label="Search">
-						<button class="btn btn-outline-success" type="submit">login</button>
+						<!-- <button class="btn btn-outline-success" type="submit">login</button> -->
+						<input class="btn btn-outline-success" type="submit" value="Login" />
+
 					</form>
 					<%
 					} else {
@@ -99,3 +119,7 @@
 				</div>
 			</div>
 		</nav>
+
+		<%
+		}
+		%>

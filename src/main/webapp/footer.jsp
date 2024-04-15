@@ -1,11 +1,19 @@
 
 
+<%
 
 
+String curenturl= request.getRequestURI();
+String footerUrl="/RegisterLogin/footer.jsp";
+if(curenturl.equals(footerUrl)){
+	response.sendRedirect("index.jsp");
+}else{
 
+System.out.println("current " +curenturl);
+System.out.println("footerUrl "+footerUrl);
 
-
-
+	
+%>
 
 <hr>
 
@@ -31,3 +39,15 @@
 
 <!-- html end -->
 </html>
+
+<%
+	
+}
+
+
+
+
+%>
+
+
+

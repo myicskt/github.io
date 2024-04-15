@@ -1,10 +1,14 @@
-<%@ include file="header.jsp" %>
+<%@ page language="java" errorPage="error.jsp"
+	contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+
+<%@ include file="header.jsp"%>
 
 
 <h1>hello</h1>
 
-<% //session.invalidate();
-session.setAttribute("username", null);
+<%
+session.invalidate();
+
 response.sendRedirect("index.jsp");
 %>
 
@@ -22,4 +26,4 @@ response.sendRedirect("index.jsp");
 
 
 
-<%@ include file="footer.jsp" %>
+<%@ include file="footer.jsp"%>

@@ -1,4 +1,7 @@
-<%@ include file="header.jsp" %>
+<%@ page language="java"  errorPage="error.jsp" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+	
+	<%@ include file="header.jsp" %>
 <%@page import="java.time.*" 
 import="java.time.format.DateTimeFormatter"%>
  <%

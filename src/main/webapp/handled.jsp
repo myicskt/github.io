@@ -8,7 +8,7 @@
 </head>
 <body>
 <p> page handle</p>
-<%Thread.sleep(5000); %>
+<%Thread.sleep(6000); %>
 <% int a =10/0; %>
 </body>
 </html>

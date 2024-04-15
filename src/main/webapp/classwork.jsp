@@ -1,4 +1,14 @@
+<%@ page language="java"  errorPage="error.jsp" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+
 <%@ include file="header.jsp"%>
+
+
+
+
+
+
 
 <div>
 <h1> Class work</h1>
@@ -25,15 +35,13 @@ synchronized (session) {
 	session.setAttribute("accessCount", accessCount);
 	
 	
+	Integer  count =session.getAttribute(accessCount); %>
+	<p>Session count is <%=session.getAttribute(accessCount) %></p>
 
 }
+
+
 %>
-<%Integer  count =session.getAttribute(accessCount); %>
-<p>Session count is <%=session.getAttribute(accessCount) %></p>
-
-
-
-
 
 
 
